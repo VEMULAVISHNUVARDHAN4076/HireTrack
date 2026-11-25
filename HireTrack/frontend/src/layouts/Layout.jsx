@@ -1,4 +1,4 @@
-import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom';
+import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 const PUBLIC_NAV = [
@@ -36,6 +36,7 @@ const ROLE_NAV = {
 export default function Layout() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
   const links = user ? ROLE_NAV[user.role] : PUBLIC_NAV;
 
   const handleLogout = () => {
@@ -96,7 +97,9 @@ export default function Layout() {
               ))}
             </nav>
           )}
-          <Outlet />
+          <div key={location.pathname} className="animate-fade-up">
+            <Outlet />
+          </div>
         </main>
       </div>
 
