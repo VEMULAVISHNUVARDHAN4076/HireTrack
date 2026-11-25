@@ -96,8 +96,8 @@ export default function BrowseJobs() {
       )}
       {!loading && (
         <ul className="space-y-3">
-          {result.items.map((job) => (
-            <li key={job.id}>
+          {result.items.map((job, index) => (
+            <li key={job.id} className="animate-fade-up" style={{ animationDelay: `${index * 60}ms` }}>
               <Link to={`/jobs/${job.id}`} className="card block transition hover:border-brand-500">
                 <div className="flex flex-wrap items-start justify-between gap-2">
                   <div>
