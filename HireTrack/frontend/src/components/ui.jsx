@@ -17,7 +17,7 @@ export function Alert({ type = 'error', children }) {
     warning: 'border-amber-200 bg-amber-50 text-amber-900',
   };
   return (
-    <div role={type === 'error' ? 'alert' : 'status'} className={`rounded-lg border px-4 py-3 text-sm ${styles[type]}`}>
+    <div role={type === 'error' ? 'alert' : 'status'} className={`animate-fade-in rounded-lg border px-4 py-3 text-sm ${styles[type]}`}>
       {children}
     </div>
   );
@@ -43,7 +43,7 @@ export function StatusBadge({ status }) {
 
 export function StatCard({ label, value }) {
   return (
-    <div className="card">
+    <div className="card card-lift animate-scale-in">
       <p className="text-sm text-slate-500">{label}</p>
       <p className="mt-2 text-3xl font-semibold text-slate-900">{value ?? '—'}</p>
     </div>
@@ -92,7 +92,7 @@ export function ScoreBar({ score }) {
   return (
     <div className="flex items-center gap-3">
       <div className="h-2 w-28 overflow-hidden rounded-full bg-slate-200" aria-hidden="true">
-        <div className={`h-full ${color}`} style={{ width: `${value}%` }} />
+        <div className={`h-full origin-left animate-grow-x ${color}`} style={{ width: `${value}%` }} />
       </div>
       <span className="text-sm font-medium text-slate-800">{score == null ? '—' : `${value}%`}</span>
     </div>
