@@ -4,7 +4,7 @@ import { Chip, ScoreBar } from './ui';
 export default function MatchPanel({ match }) {
   if (!match) return null;
   return (
-    <section className="card space-y-4" aria-labelledby="match-heading">
+    <section className="card animate-fade-up space-y-4" aria-labelledby="match-heading">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <h3 id="match-heading" className="text-base font-semibold text-slate-900">AI resume match</h3>
         <ScoreBar score={match.score} />
